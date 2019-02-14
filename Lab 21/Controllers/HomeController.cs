@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Lab_21.Models;
 
 namespace Lab_21.Controllers
 {
@@ -35,8 +36,12 @@ namespace Lab_21.Controllers
         public ActionResult Result(User u)
         {
             ViewBag.FirstName = u.FirstName;
-            return View();
-        }
+            ViewBag.Name = $"Name: {u.FirstName} {u.LastName}";
+            ViewBag.Email = $"Email: {u.Email}";
+            ViewBag.Birthday = $"Birthday: {u.Birthday}";
+            ViewBag.PhoneNumber = $"Phone Number: {u.Phone}";
 
+            return View("Summary");
+        }
     }
 }
